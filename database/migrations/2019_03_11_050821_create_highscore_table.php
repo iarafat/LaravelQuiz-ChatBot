@@ -15,7 +15,7 @@ class CreateHighscoreTable extends Migration
     {
         Schema::create('highscore', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('chat_id');
+            $table->string('chat_id');
             $table->string('name');
             $table->integer('points')->default(0);
             $table->integer('correct_answers')->default(0);
