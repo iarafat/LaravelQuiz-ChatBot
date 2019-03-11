@@ -77,24 +77,33 @@ return [
     'persistent_menu' => [
         [
             'locale' => 'default',
-            'composer_input_disabled' => 'true',
+            'composer_input_disabled' => 'false',
             'call_to_actions' => [
                 [
-                    'title' => 'My Account',
+                    'title' => 'Start Quiz',
+                    'type' => 'postback',
+                    'payload' => 'startquiz',
+                ],
+                [
+                    'title' => 'Show Highscore',
+                    'type' => 'postback',
+                    'payload' => 'highscore',
+                ],
+                [
+                    'title' => 'Privacy',
                     'type' => 'nested',
                     'call_to_actions' => [
                         [
-                            'title' => 'Pay Bill',
+                            'title' => 'About This project',
                             'type' => 'postback',
-                            'payload' => 'PAYBILL_PAYLOAD',
+                            'payload' => 'about',
+                        ],
+                        [
+                            'title' => 'Delete my data',
+                            'type' => 'postback',
+                            'payload' => 'deletedata',
                         ],
                     ],
-                ],
-                [
-                    'type' => 'web_url',
-                    'title' => 'Latest News',
-                    'url' => 'http://botman.io',
-                    'webview_height_ratio' => 'full',
                 ],
             ],
         ],
