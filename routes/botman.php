@@ -5,9 +5,13 @@ use App\Conversations\PrivacyConversation;
 use App\Conversations\QuizConversation;
 use App\Conversations\WelcomeConversation;
 use App\Http\Controllers\BotManController;
+use App\Http\Middleware\TypingMiddleware;
 use BotMan\BotMan\BotMan;
 
 $botman = resolve('botman');
+
+$typingMiddleware = new TypingMiddleware();
+$botman->middleware->sending($typingMiddleware);
 
 $botman->hears('Hi', function ($bot) {
     $bot->reply('Hello!');

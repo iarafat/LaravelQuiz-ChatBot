@@ -31,6 +31,6 @@ class HighscoreConversation extends Conversation
         });
         $this->say('Here is the current highscore. Do you think you can do better? Start the quiz: /startquiz or startquiz');
         $this->say('🏆 HIGHSCORE 🏆');
-        $this->say($topUsers->implode("\n"));
+        $this->say($topUsers->implode("\n"), ['parse_mode' => 'Markdown']);
     }
 }
