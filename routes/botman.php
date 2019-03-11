@@ -1,6 +1,7 @@
 <?php
 
 use App\Conversations\HighscoreConversation;
+use App\Conversations\PrivacyConversation;
 use App\Conversations\QuizConversation;
 use App\Conversations\WelcomeConversation;
 use App\Http\Controllers\BotManController;
@@ -23,4 +24,12 @@ $botman->hears('/startquiz|startquiz', function (BotMan $bot) {
 
 $botman->hears('/highscore|highscore', function (BotMan $bot) {
     $bot->startConversation(new HighscoreConversation());
+})->stopsConversation();
+
+$botman->hears('/deletedata|deletedata', function (BotMan $bot) {
+    $bot->startConversation(new PrivacyConversation());
+})->stopsConversation();
+
+$botman->hears('/about|about', function (BotMan $bot) {
+    $bot->reply('LaravelQuiz is a project by MD Iyasin Arafat. Find out more about it on https://github.com/iarafat/LaravelQuiz-ChatBot');
 })->stopsConversation();
