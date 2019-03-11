@@ -47,10 +47,11 @@ class QuizConversation extends Conversation
             if (! $quizAnswer)
             {
                 $this->say('Sorry, I did not get that. Please use the buttons.');
-                $this->checkForNextQuestion();
+                return $this->checkForNextQuestion();
             }
 
             $this->quizQuestions->forget($question->id);
+
             if ($quizAnswer->correct_one){
                 $this->userPoints += $question->points;
                 $this->userCorrectAnswers++;
